@@ -17,4 +17,4 @@ Easy, Fast And Relevant Software For Creating Music
 - KrisnaPranav
 
 ## License:
-- nofraeditor is licensed under (MIT-License)[https://github.com/NofraEditors/nofraeditor/blob/main/LICENSE]
+- nofraeditor is licensed under [MIT-License](https://github.com/NofraEditors/nofraeditor/blob/main/LICENSE)
