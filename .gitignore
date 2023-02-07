@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+# ide caches
+.vscode/
+.idea/
