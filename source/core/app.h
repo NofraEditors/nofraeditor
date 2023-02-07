@@ -8,3 +8,10 @@
  * @copyright Copyright (c) 2023 Krisna Pranav, NofraEditorDevelopers
  * 
  */
+
+#pragma once
+
+class Config;
+class Network;
+class Workspace;
+
