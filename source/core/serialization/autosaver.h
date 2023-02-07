@@ -15,14 +15,26 @@
 
 class DocumentOwner;
 
-class Autosaver final : private Timer {
+class Autosaver final :
+    private ChangeListener,
+    private Timer
+{
 public:
-    explicit Autosaver(DocumentOwner &targetDocumentOwner, int waitDelayMs = 3000);
+
+    explicit Autosaver(DocumentOwner &targetDocumentOwner, int waitDelayMs = 30000);
 
     ~Autosaver() override;
 
 private:
+
+    void changeListenerCallback(ChangeBroadcaster *source) override;
+
+    void timerCallback() override;
+
+    DocumentOwner &documentOwner;
+
     const int delay;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Autosaver)
-}
+
+};
