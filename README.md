@@ -1,4 +1,4 @@
-# nofraeditor
+# cobraeditor
 Easy, Fast And Relevant Software For Creating Music
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-c-plus-plus.svg)](https://forthebadge.com)
@@ -10,11 +10,11 @@ Easy, Fast And Relevant Software For Creating Music
 - Multiplatform 💻
 
 ## Contributions:
-- nofraeditor is an open-source project, feel free to contribute to this projects.
+- cobraeditor is an open-source project, feel free to contribute to this projects.
 - contributions are always welcomed
 
 ## Author
 - KrisnaPranav
 
 ## License:
-- nofraeditor is licensed under [MIT-License](https://github.com/NofraEditors/nofraeditor/blob/main/LICENSE)
+- cobraeditor is licensed under [MIT-License](https://github.com/NofraEditors/cobraeditor/blob/main/LICENSE)
