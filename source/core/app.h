@@ -5,7 +5,7 @@
  * @version 0.1
  * @date 2023-02-06
  * 
- * @copyright Copyright (c) 2023 Krisna Pranav, NofraEditorDevelopers
+ * @copyright Copyright (c) 2023 Krisna Pranav, CobraEditorDevelopers
  * 
  */
 
