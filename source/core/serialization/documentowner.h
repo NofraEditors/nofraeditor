@@ -9,20 +9,36 @@
  * 
  */
 
-#pragma once 
+#pragma once
 
 #include "document.h"
 
-class DocumentOwner : public virtual ChangeBroadcaster {
+class DocumentOwner : public virtual ChangeBroadcaster
+{
 public:
-    explicit DocumentOwner(const File &existingFile) : 
+
+    explicit DocumentOwner(const File &existingFile) :
         document(make<Document>(*this, existingFile)) {}
-    
+
     DocumentOwner(const String &name, const String &extension) :
         document(make<Document>(*this, name, extension)) {}
-    
-    Document *getDocument() const noexcept {
+
+    Document *getDocument() const noexcept
+    {
         return this->document.get();
     }
 
-}
+protected:
+
+    virtual bool onDocumentLoad(const File &file) = 0;
+    virtual bool onDocumentSave(const File &file) = 0;
+    virtual void onDocumentImport(InputStream &stream) = 0;
+    virtual bool onDocumentExport(OutputStream &stream) = 0;
+
+    friend class Document;
+
+private:
+
+    const UniquePointer<Document> document;
+
+};
