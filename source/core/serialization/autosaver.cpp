@@ -20,13 +20,16 @@ Autosaver::Autosaver(DocumentOwner &targetDocumentOwner, int waitDelayMs) :
     this->documentOwner.addChangeListener(this);
 }
 
-Autosaver::~Autosaver()
-{
+Autosaver::~Autosaver() {
     this->documentOwner.removeChangeListener(this);
 }
 
-void Autosaver::timeCallback() 
-{
+void Autosaver::changeListenerCallback(ChangeBroadcaster *source) {
+    static Random r;
+    this->startTimer(this->delay + r.nextInt(1000));
+}
+
+void Autosaver::timerCallback() {
     this->stopTimer();
     this->documentOwner.getDocument()->save();
 }
