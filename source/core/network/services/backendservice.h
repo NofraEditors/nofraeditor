@@ -9,14 +9,19 @@
  * 
  */
 
-#pragma once 
+#pragma once
 
 #if !NO_NETWORK
 
-class BackendService {
-protected: 
-    virtual ~BackendService()
-    {
+class BackendService
+{
+protected:
+
+    /**
+     * @brief Destroy the Backend Service object
+     * 
+     */
+    virtual ~BackendService() {
         for (auto *thread : this->requestThreads)
         {
             if (thread->isThreadRunning())
@@ -24,16 +29,25 @@ protected:
                 thread->signalThreadShouldExit();
             }
         }
-    }  
+    }
 
-    OwnedArray<Thread> rqeuestedThreads;
+    /**
+     * @brief RequestedThreads
+     * 
+     */
+    OwnedArray<Thread> requestThreads;
 
-    template <typename T>
-    T *getNewThreadFor()
-    {
+    /**
+     * @brief Get the New Thread For object
+     * 
+     * @tparam T 
+     * @return T* 
+     */
+    template<typename T>
+    T *getNewThreadFor() {
         for (auto *thread : this->requestThreads)
         {
-            if (!threads->isThreadRunning()) 
+            if (!thread->isThreadRunning())
             {
                 if (T *target = dynamic_cast<T *>(thread))
                 {
@@ -43,7 +57,29 @@ protected:
         }
 
         return static_cast<T *>(this->requestThreads.add(new T()));
-    }      
-}
+    }
+
+    /**
+     * @brief Get the Running Thread For object
+     * 
+     * @tparam T 
+     * @return T* 
+     */
+    template<typename T>
+    T *getRunningThreadFor() {
+        for (auto *thread : this->requestThreads)
+        {
+            if (thread->isThreadRunning())
+            {
+                if (T *target = dynamic_cast<T *>(thread))
+                {
+                    return target;
+                }
+            }
+        }
+
+        return nullptr;
+    }
+};
 
 #endif
