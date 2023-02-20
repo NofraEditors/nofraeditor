@@ -9,12 +9,13 @@
  * 
  */
 
-#pragma once 
+#pragma once
 
 #include "serializer.h"
 
 class XmlSerializer final : public Serializer {
 public:
+
     /**
      * @brief Save To File
      * 
@@ -25,7 +26,7 @@ public:
     Result saveToFile(File file, const SerializedData &tree) const override;
 
     /**
-     * @brief Load From A File
+     * @brief Load From File
      * 
      * @param file 
      * @return SerializedData 
@@ -36,10 +37,10 @@ public:
      * @brief Save To String
      * 
      * @param string 
-     * @param data 
+     * @param tree 
      * @return Result 
      */
-    Result saveToString(String &string, const SerializedData &data) const override;
+    Result saveToString(String &string, const SerializedData &tree) const override;
     
     /**
      * @brief Load From String
@@ -48,4 +49,23 @@ public:
      * @return SerializedData 
      */
     SerializedData loadFromString(const String &string) const override;
+
+    /**
+     * @brief Supports File With Extension
+     * 
+     * @param extension 
+     * @return true 
+     * @return false 
+     */
+    bool supportsFileWithExtension(const String &extension) const override;
+
+    /**
+     * @brief Supports file with header
+     * 
+     * @param header 
+     * @return true 
+     * @return false 
+     */
+    bool supportsFileWithHeader(const String &header) const override;
+
 };
