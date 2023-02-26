@@ -9,24 +9,35 @@
  * 
  */
 
-#pragma once 
+#pragma once
 
 #include "serializeddata.h"
 
 class Serializable {
 public:
-    void ~SerializedData() = default;
-    void SerializedData serialize() const = 0; 
-
+    
     /**
-     * @brief dserialize
+     * @brief Destroy the Serializable object
      * 
-     * @param rest 
      */
-    virtual void deserialize(const SerializedData &rest) = 0;
+    virtual ~Serializable() = default;
 
     /**
-     * @brief Reset 
+     * @brief Serialize
+     * 
+     * @return * SerializedData 
+     */
+    virtual SerializedData serialize() const = 0;
+
+    /**
+     * @brief Deserialize
+     * 
+     * @param data 
+     */
+    virtual void deserialize(const SerializedData &data) = 0;
+
+    /**
+     * @brief Reset
      * 
      */
     virtual void reset() = 0;
