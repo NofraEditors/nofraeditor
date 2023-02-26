@@ -70,7 +70,7 @@ void DocumentHelpers::showFileChooser(UniquePointer<FileChooser> &chooser,
 String DocumentHelpers::getTemporaryFolder()
 {
     const File tempFolder(File::getSpecialLocation(File::tempDirectory).
-        getFullPathName() + "/Helio");
+        getFullPathName() + "/Nofra");
 
     if (tempFolder.existsAsFile())
     {
@@ -87,9 +87,9 @@ static File getFirstSlot(String location1, String location2, const String &fileN
 
 #if PLATFORM_DESKTOP
 
-    const String helioSubfolder = "Helio";
-    File file1(File(location1).getChildFile(helioSubfolder));
-    File file2(File(location2).getChildFile(helioSubfolder));
+    const String nofraSubfolder = "Nofra";
+    File file1(File(location1).getChildFile(nofraSubfolder));
+    File file2(File(location2).getChildFile(nofraSubfolder));
 
     if (file1.getChildFile(fileName).existsAsFile())
     {

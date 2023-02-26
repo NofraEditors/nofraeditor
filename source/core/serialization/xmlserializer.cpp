@@ -101,7 +101,7 @@ SerializedData XmlSerializer::loadFromString(const String &string) const {
  * @return false 
  */
 bool XmlSerializer::supportsFileWithExtension(const String &extension) const {
-    return extension.endsWithIgnoreCase("xml") || extension.endsWithIgnoreCase("helio");
+    return extension.endsWithIgnoreCase("xml") || extension.endsWithIgnoreCase("nofra");
 }
 
 /**

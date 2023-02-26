@@ -54,7 +54,7 @@ namespace Serialization
         static const Identifier timeSignaturesTrackId = "timeSignaturesTrackId";
 
         static const Identifier globalConfig = "config";
-        static const Identifier clipboard = "helioClipboard";
+        static const Identifier clipboard = "nofraClipboard";
     } 
 
     namespace Midi
